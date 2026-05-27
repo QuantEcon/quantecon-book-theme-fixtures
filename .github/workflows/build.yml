@@ -1,0 +1,46 @@
+name: Build Fixtures Site
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Self-check: build the fixtures site against the latest released
+# quantecon-book-theme to confirm source files are valid and warning-free.
+# This catches broken {doc} refs, missing extensions, or malformed directives
+# before the theme repo tries to consume them.
+#
+# This workflow does NOT publish artefacts. The theme repo builds its own copy
+# at PR time against the PR's theme version.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install fixtures build deps
+        run: |
+          pip install -r requirements.txt
+
+      - name: Install quantecon-book-theme (latest released)
+        run: |
+          pip install quantecon-book-theme
+
+      - name: Build fixtures site
+        run: |
+          jb build . --warningiserror
+
+      - name: Upload build (for inspection on failure)
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: fixtures-build
+          path: _build/html/
+          retention-days: 14

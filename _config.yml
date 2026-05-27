@@ -1,0 +1,57 @@
+# jupyter-book configuration for quantecon-book-theme-fixtures
+#
+# This config intentionally mirrors the lecture-python-programming setup so
+# fixture builds match what real QuantEcon books produce.
+
+title: QuantEcon Book Theme Fixtures
+author: QuantEcon
+logo: ""
+
+# Pin theme + jupyter-book + sphinx versions in requirements.txt,
+# not here, so the build is reproducible.
+
+# Repo-meta docs (READMEs, migration notes) live alongside content but are not
+# part of the rendered book — exclude them so they don't trigger "document
+# isn't in any toctree" warnings or get parsed for cross-references.
+exclude_patterns:
+  - README.md
+  - MIGRATION.md
+  - real-world/README.md
+  - _build
+
+execute:
+  execute_notebooks: "off"   # fixtures are static — no notebook execution
+
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
+
+sphinx:
+  config:
+    html_theme: quantecon_book_theme
+    mathjax3_config:
+      tex:
+        macros:
+          "argmax": "\\operatorname{argmax}"
+          "argmin": "\\operatorname{argmin}"
+    # The real-world fixtures preserve IPython shell magics ("!pip install …")
+    # which the "python" pygments lexer can't parse. The relaxed-mode retry
+    # produces correct output, so suppress the warning to keep the build
+    # --warningiserror clean.
+    suppress_warnings:
+      - misc.highlighting_failure
+  extra_extensions:
+    - sphinx_exercise
+    - sphinx_proof
+    - sphinx_togglebutton
+    - sphinxcontrib.youtube

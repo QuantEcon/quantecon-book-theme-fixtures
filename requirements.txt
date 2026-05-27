@@ -1,0 +1,17 @@
+# Pinned build dependencies for quantecon-book-theme-fixtures.
+#
+# Pin everything so the build output is reproducible. When bumping any of
+# these, regenerate visual snapshots in quantecon-book-theme as a separate PR.
+#
+# Note: quantecon-book-theme itself is NOT pinned here — the theme repo's CI
+# installs the PR's theme version on top of these requirements before
+# building. For local fixture authoring, install the theme separately:
+#   pip install -e ../quantecon-book-theme
+
+jupyter-book==1.0.4.post1
+sphinx-exercise
+sphinx-proof
+sphinx-togglebutton
+sphinxcontrib-youtube
+sphinxext-rediraffe
+sphinx-reredirects
