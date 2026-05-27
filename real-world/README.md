@@ -1,7 +1,8 @@
 # Real-world fixtures
 
-Frozen snapshots of QuantEcon lecture pages that exposed theme bugs. Each file
-captures a specific failure mode so it becomes a permanent regression check.
+Captured snapshots of QuantEcon lecture pages that exposed theme bugs. Each
+file preserves a specific failure mode so it becomes a permanent regression
+check.
 
 ## When to add a fixture
 

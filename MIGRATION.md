@@ -186,7 +186,7 @@ const syntheticPages = [
   { name: "cross-refs",      path: "/synthetic/cross-references.html" },
 ];
 
-// Real-world pages — frozen lecture captures
+// Real-world pages — captured lecture fixtures
 const realWorldPages = [
   { name: "prob-matrix",     path: "/real-world/from-lecture-python/prob_matrix.html" },
 ];

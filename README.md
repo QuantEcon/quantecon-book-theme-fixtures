@@ -1,13 +1,14 @@
 # quantecon-book-theme-fixtures
 
-A frozen, curated jupyter-book site used as the **single, static target** for:
+A curated jupyter-book site used as the **single, stable target** for:
 
 1. Visual regression tests of [`quantecon-book-theme`](https://github.com/QuantEcon/quantecon-book-theme)
 2. Netlify preview deploys on theme pull requests (the "group review gallery")
 3. A growing corpus of edge cases captured from real QuantEcon lectures
 
-Because the content here is **frozen** (not pulled fresh from a moving lecture
-repo each CI run), every visual diff in a theme PR is attributable to a theme
+Because the content here doesn't move under the theme repo's CI (the theme
+pins to a specific fixtures SHA, rather than pulling from a moving lecture
+repo each run), every visual diff in a theme PR is attributable to a theme
 change — not to upstream content edits.
 
 ## Layout
@@ -31,7 +32,7 @@ quantecon-book-theme-fixtures/
 │   ├── toc-deep-nesting.md  # stress RHS "On this page" overflow (#387)
 │   ├── long-page.md         # stress LHS sidebar scrolling
 │   └── cross-references.md  # internal refs, footnotes, anchors
-└── real-world/              # frozen snapshots of lectures that broke things
+└── real-world/              # captured snapshots of lectures that broke things
     ├── README.md            # capture workflow + header convention
     └── from-<source-repo>/
         └── <descriptive-name>.{md,ipynb}
@@ -49,8 +50,8 @@ This keeps the model simple:
   `pip install`s the requirements, `pip install`s the theme PR under test, and
   runs `jb build .`.
 - No asset-overlay logic, no committed `_build/html/` to keep in sync.
-- The *input* is frozen (same source files for every theme PR), so visual
-  diffs reflect theme changes only.
+- The *input* doesn't change between theme PRs (the theme repo pins to a
+  fixtures SHA), so visual diffs reflect theme changes only.
 
 To build locally:
 

@@ -1,13 +1,13 @@
 # QuantEcon Book Theme Fixtures
 
-This site is the **frozen rendering target** for visual regression tests and
+This site is the **stable rendering target** for visual regression tests and
 Netlify preview deploys of [`quantecon-book-theme`](https://github.com/QuantEcon/quantecon-book-theme).
 
 It contains two parts:
 
 - **Synthetic fixtures** — minimal pages, one per theme surface (typography,
   code blocks, math, admonitions, tables, etc.).
-- **Real-world fixtures** — frozen snapshots of QuantEcon lectures that
+- **Real-world fixtures** — captured snapshots of QuantEcon lectures that
   triggered theme bugs, preserved as permanent regression cases.
 
 Use this site to:
