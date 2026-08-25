@@ -47,6 +47,21 @@ sphinx:
         <strong>Demo banner</strong> &mdash; this theme now supports a
         dismissible announcement bar. See the
         <a href="intro.html">introduction</a>.
+      # Demo of the author and translator bylines. Both are set at project
+      # level so every fixture page carries the full attribution block and the
+      # visual snapshots cover it. The translator names are placeholders on
+      # purpose. `translators_label` is left at its "Translated by" default,
+      # since that is what an edition gets before it localises the label.
+      authors:
+        - name: Thomas J. Sargent
+          url: http://www.tomsargent.com/
+        - name: John Stachurski
+          url: https://johnstachurski.net/
+      translators:
+        - name: Jane Doe
+          url: https://example.org/jane-doe
+        - name: John Roe
+          url: https://example.org/john-roe
     mathjax3_config:
       tex:
         macros:
